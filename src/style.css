@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.hovered {
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
+}
+.hovered:hover,
+.hovered:active {
+  top: -0.7rem;
+  cursor: pointer;
+}
+.hoveredButton {
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
+}
+.hoveredButton:hover,
+.hoveredButton:active {
+  background-color: #f1cdb3;
+  top: -0.7rem;
+  cursor: pointer;
+}
+
+/* NAVIGATION */
+.box {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+  background-color: #f9d923;
+}
+
+.navigation {
+  width: 100%;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  background-color: #f9d923;
+}
+
+.navigation-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+}
+
+.navigation .lists {
+  display: flex;
+}
+
+.navigation .navigation-box li {
+  list-style: none;
+}
+
+.navigation .navigation-box a,
+.categoryCardText {
+  text-decoration: none;
+  color: #1f4690;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 0.7rem;
+}
+
+.navigation .navigation-box a:hover {
+  font-weight: 900;
+}
+
+.navigation-box {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.navigation-box .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.navigation-box .burger-menu {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navigation-box .burger-menu .div {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #0e2431;
+  background-color: #1f4690;
+}
+
+.navigation-box .burger-menu .div1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navigation-box .burger-menu .div2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.navigation-box .burger-menu .div3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navigation .lists {
+  padding-top: 100px;
+  height: 130vh;
+  width: 50%;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  transition: transform 0.7s ease-in-out;
+  text-align: center;
+  background-color: #f9d923;
+}
+
+.navigation .lists li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 2rem;
+  color: #1f4690;
+  font-family: "Pacifico", cursive;
+  letter-spacing: 4px;
+}
+
+.navigation-box input[type="checkbox"]:checked ~ .lists {
+  transform: translateX(0);
+}
+
+.navigation-box input[type="checkbox"]:checked ~ .burger-menu .div1 {
+  transform: rotate(45deg);
+}
+
+.navigation-box input[type="checkbox"]:checked ~ .burger-menu .div2 {
+  transform: scaleY(0);
+}
+
+.navigation-box input[type="checkbox"]:checked ~ .burger-menu .div3 {
+  transform: rotate(-45deg);
+}
+
+/*  .navigation-box input[type="checkbox"]:checked ~ .playBtn{
+  display: none;
+} */
+
+/* CATEGORY PAGE */
+.categoryCardDiv {
+  width: 180px;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexCenterColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.categoryCardMain {
+  flex-wrap: wrap;
+  column-gap: 11rem;
+  max-width: 128rem;
+  min-height: 52rem;
+  margin-top: 10rem;
+}
+.categoryCardImage {
+  width: 100%;
+}
+.innerCard {
+  width: 180px;
+}
+.hidden {
+  display: none;
+}
+.playBtn {
+  box-sizing: border-box;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid;
+  border-radius: 4px;
+  color: #36ae7c;
+}
+.playBtn::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid;
+  color: #ff8d29;
+  margin-left: 6px;
+  margin-top: 4px;
+}
+.displayNone {
+  display: none;
+}
+
+/* SWITCHER */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3.4rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ececec;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ff1818;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff1818;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.destination {
+  position: relative;
+  left: 115rem;
+  top: 5rem;
+}
+
+ .destination input[type="checkbox"]:checked ~ .startBtn {
+  display: block;
+} 
+.startBtn {
+  width: 6rem;
+  height: 3.5rem;
+  margin-top: -2.35rem;
+  margin-left: -10rem;
+  background-color: #f9d923;
+  color: #1f4690;
+  border: 0;
+  display: none;
+  font-weight: bold;
+  font-family: "Pacifico", cursive;
+  font-size: 1.8rem;
+}
+.displayNone {
+  display: none;
+}
+.changeBGColor{
+  background-color: lightgray;
+}
+.rotateBtn{
+  font-size: 2.9rem;
+  font-weight: bold;
+  color: #36ae7c;
+}
+.rotateDiv360{
+  transform: rotateY(360deg);
+  transition-duration:1s;
+}
+.rotateDiv0{
+  transform: rotateY(0deg);
+  transition-duration:1s;
+}
