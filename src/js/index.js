@@ -18,13 +18,13 @@ function generateMainCards() {
       classList: ["categoryCardDiv", "flexCenterColumn"],
       parent: categoryCardMain,
     });
-    const categoryImage = createElement({
+    createElement({
       tag: "img",
       classList: ["categoryCardImage"],
       src: mainCards[1][i],
       parent: categoryCardDiv,
     });
-    const categoryText = createElement({
+    createElement({
       tag: "p",
       classList: ["categoryCardText"],
       text: mainCards[0][i].toUpperCase(),
@@ -180,12 +180,14 @@ for (let i = 0; i < 8; i++) {
             alert(`there are ${database.mistakes} mistake(s) on your hand`);
           }, 1000);
           repeat.disabled=true
+          window.location.replace("../index.html")
         } else {
           winVoice();
           setTimeout(() => {
             alert(`Yaaay, no mistakes <3`);
           }, 1000);
           repeat.disabled=true
+          window.location.replace("../index.html")
         }
       }
     }
@@ -326,7 +328,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (checkbox[1].checked) {
       startBtn.disabled = false;
     } else {
-      console.log("unchecked");
       for (let i = 0; i < 8; i++) {
         e.target.parentElement.parentElement.children[2].children[
           i
