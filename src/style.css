@@ -41,7 +41,7 @@ a {
 /* NAVIGATION */
 .box {
   max-width: 1050px;
-  width: 90%;
+  width: 100%;
   margin: auto;
   background-color: #f9d923;
 }
@@ -244,8 +244,8 @@ a {
 .switch {
   position: relative;
   display: inline-block;
-  width: 6rem;
-  height: 3.4rem;
+  width: 10rem;
+  height: 5.4rem;
 }
 
 /* Hide default HTML checkbox */
@@ -266,18 +266,20 @@ a {
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border-radius: 10rem;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
+  height: 46px;
+  width: 50%;
+  left: 11px;
   bottom: 4px;
   background-color: #ececec;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border-radius: 10rem;
 }
 
 input:checked + .slider {
@@ -296,7 +298,7 @@ input:checked + .slider:before {
 
 .destination {
   position: relative;
-  left: 115rem;
+  left: 85%;
   top: 5rem;
 }
 
@@ -305,8 +307,8 @@ input:checked + .slider:before {
 }
 
 .startBtn {
-  width: 6rem;
-  height: 3.5rem;
+  width: 10rem;
+  height: 5.5rem;
   margin-top: -2.35rem;
   margin-left: -10rem;
   background-color: #f9d923;
@@ -315,7 +317,8 @@ input:checked + .slider:before {
   display: none;
   font-weight: bold;
   font-family: "Pacifico", cursive;
-  font-size: 1.8rem;
+  font-size: 2.8rem;
+  border-radius: 10rem;
 }
 .displayNone {
   display: none;
@@ -380,3 +383,14 @@ input:checked + .slider:before {
 .resultDivTextRed {
   color: #ff1818;
 }
+@media (max-width: 375px) {
+ .logo{
+  display: none;
+ }
+}
+@media (max-width: 320px)  {
+  body{
+   display: none;
+  }
+ }
+
