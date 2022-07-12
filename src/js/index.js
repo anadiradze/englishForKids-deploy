@@ -1,5 +1,5 @@
-import { cards, mainCards } from "./cards";
-import createElement from "./createElement";
+import { cards, mainCards } from "./cards.js";
+import createElement from "./createElement.js";
 
 const categoryCardMain = document.querySelector(".categoryCardMain");
 const menuItems = document.querySelectorAll(".menuItem");
