@@ -10,7 +10,7 @@ const database = {
   mistakes: 0,
 };
 
-// generate 8 main cards
+// generate 8 main cardss
 function generateMainCards() {
   for (let i = 0; i < cards.length; i++) {
     const categoryCardDiv = createElement({
