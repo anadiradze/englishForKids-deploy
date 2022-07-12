@@ -1,16 +1,16 @@
 import { cards, mainCards } from "./cards.js";
 import createElement from "./createElement.js";
-
 const categoryCardMain = document.querySelector(".categoryCardMain");
 const menuItems = document.querySelectorAll(".menuItem");
 const label = document.querySelector(".destination");
 const startBtn = document.querySelector(".startBtn");
+const repeat = document.querySelector(".repeat")
 const database = {
   pushRandNumbersInThisArr: null,
   mistakes: 0,
 };
 
-// generate 8 main cardss
+// generate 8 main cards
 function generateMainCards() {
   for (let i = 0; i < cards.length; i++) {
     const categoryCardDiv = createElement({
@@ -83,7 +83,7 @@ function isWrong() {
     startBtn.addEventListener("click", (e) => {
       e.target.parentElement.parentElement.children[2].children[
         j
-      ].addEventListener("mouseup", () => {
+      ].addEventListener("click", () => {
         if (
           e.target.parentElement.parentElement.children[2].children[j]
             .children[0].src !==
@@ -101,10 +101,10 @@ generateRandCards();
 
 isWrong();
 for (let i = 0; i < 8; i++) {
-  carditos[i].addEventListener("click", () => {
-    startBtn.addEventListener("click", playAudio); //play sound on start click
-  });
-
+  carditos[i].addEventListener("click", playAudioInCarditos); //play sound on start click;
+  function playAudioInCarditos() {
+    startBtn.addEventListener("click", playAudio);
+  }
   function playAudio() {
     if (database.pushRandNumbersInThisArr.length > 0) {
       const audio = createElement({
@@ -118,7 +118,41 @@ for (let i = 0; i < 8; i++) {
       ].addEventListener("click", isCorrect); // checks if sound matches card on card click
     }
   }
+  startBtn.addEventListener("click",()=>{
+    repeat.classList.remove("displayNone");
+  })
 
+  repeat.addEventListener("click",()=>{
+    if (
+      categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
+        .children[1].textContent ===
+      cards[i][database.pushRandNumbersInThisArr[0]].word
+    ){
+      const audio = createElement({
+        tag: "audio",
+        classList: ["audio"],
+        src: cards[i][database.pushRandNumbersInThisArr[0]].audioSrc,
+      });
+      audio.play();
+    }
+    
+  })
+  menuItems[i].addEventListener("click", uncheckOnMenuItem);
+  function uncheckOnMenuItem() {
+    let checkbox = document.querySelectorAll('input[type="checkbox"]');
+    checkbox[1].checked = false;
+    generateRandCards();
+    repeat.disabled=false
+    startBtn.addEventListener("click", ()=>{
+      if(
+        categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
+          .children[1].textContent ===
+        cards[i][database.pushRandNumbersInThisArr[0]].word
+      ){
+        playAudio()
+      }
+    });
+  }
   function isCorrect() {
     if (
       categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
@@ -145,11 +179,13 @@ for (let i = 0; i < 8; i++) {
           setTimeout(() => {
             alert(`there are ${database.mistakes} mistakes on your hand`);
           }, 1000);
+          repeat.disabled=true
         } else {
           winVoice();
           setTimeout(() => {
             alert(`you won`);
           }, 1000);
+          repeat.disabled=true
         }
       }
     }
@@ -244,7 +280,6 @@ function onStartBtn(display) {
         i
       ].children[3].style.display = display;
       startBtn.disabled = true;
-
     });
   }
 }
@@ -286,19 +321,26 @@ function loseVoice() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var checkbox = document.querySelectorAll('input[type="checkbox"]');
+  let checkbox = document.querySelectorAll('input[type="checkbox"]');
   checkbox[1].addEventListener("click", function (e) {
     if (checkbox[1].checked) {
-      startBtn.disabled = false
+      startBtn.disabled = false;
     } else {
-      console.log("unchecked")
+      console.log("unchecked");
       for (let i = 0; i < 8; i++) {
-        e.target.parentElement.parentElement.children[2].children[i].children[1].style.display = "block"
-        e.target.parentElement.parentElement.children[2].children[i].children[2].style.display = "block"
-        e.target.parentElement.parentElement.children[2].children[i].children[3].style.display = "block"
-        e.target.parentElement.parentElement.children[2].children[i].classList.remove("changeBGColor")
-        generateRandCards() 
-        
+        e.target.parentElement.parentElement.children[2].children[
+          i
+        ].children[1].style.display = "block";
+        e.target.parentElement.parentElement.children[2].children[
+          i
+        ].children[2].style.display = "block";
+        e.target.parentElement.parentElement.children[2].children[
+          i
+        ].children[3].style.display = "block";
+        e.target.parentElement.parentElement.children[2].children[
+          i
+        ].classList.remove("changeBGColor");
+        generateRandCards();
       }
     }
   });

@@ -300,9 +300,10 @@ input:checked + .slider:before {
   top: 5rem;
 }
 
- .destination input[type="checkbox"]:checked ~ .startBtn {
+.destination input[type="checkbox"]:checked ~ .startBtn {
   display: block;
-} 
+}
+
 .startBtn {
   width: 6rem;
   height: 3.5rem;
@@ -319,19 +320,41 @@ input:checked + .slider:before {
 .displayNone {
   display: none;
 }
-.changeBGColor{
+.changeBGColor {
   background-color: lightgray;
 }
-.rotateBtn{
+.rotateBtn {
   font-size: 2.9rem;
   font-weight: bold;
   color: #36ae7c;
 }
-.rotateDiv360{
+.rotateDiv360 {
   transform: rotateY(360deg);
-  transition-duration:1s;
+  transition-duration: 1s;
 }
-.rotateDiv0{
+.rotateDiv0 {
   transform: rotateY(0deg);
-  transition-duration:1s;
+  transition-duration: 1s;
+}
+.repeat {
+  margin-left: 10rem;
+  margin-top: 3rem;
+  background-color: #f9d923;
+  color: #36ae7c;
+  width: 15rem;
+  height: 5rem;
+  border: none;
+  border-radius: 10rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2.6rem;
+}
+.hovered {
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
+}
+.hovered:active {
+  top: -0.7rem;
+  cursor: pointer;
 }
