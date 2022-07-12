@@ -177,13 +177,13 @@ for (let i = 0; i < 8; i++) {
         if (database.mistakes > 0) {
           loseVoice();
           setTimeout(() => {
-            alert(`there are ${database.mistakes} mistakes on your hand`);
+            alert(`there are ${database.mistakes} mistake(s) on your hand`);
           }, 1000);
           repeat.disabled=true
         } else {
           winVoice();
           setTimeout(() => {
-            alert(`you won`);
+            alert(`Yaaay, no mistakes <3`);
           }, 1000);
           repeat.disabled=true
         }
