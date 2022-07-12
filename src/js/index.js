@@ -186,8 +186,6 @@ for (let i = 0; i < 8; i++) {
           setTimeout(() => {
             window.location.replace("../../src/index.html")
           }, 2000);
-          repeat.disabled=true
-          window.location.replace("../../src/index.html")
         }
       }
     }
