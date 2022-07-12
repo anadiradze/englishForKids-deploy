@@ -176,16 +176,26 @@ for (let i = 0; i < 8; i++) {
       if (database.pushRandNumbersInThisArr.length === 0) {
         if (database.mistakes > 0) {
           loseVoice();
-          alert(`there are ${database.mistakes} mistake(s) on your hand`);
-          setTimeout(() => {
+          createElement({
+            tag:"div",
+            text: `There are ${database.mistakes} mistake(s) on your hand`,
+            parent: document.body,
+            classList:["resultDiv","resultDivTextRed"]
+          })
+           setTimeout(() => {
             window.location.replace("../../src/index.html")
-          }, 2000);
+          }, 5000); 
         } else {
           winVoice();
-            alert(`Yaaay, no mistakes <3`);
-          setTimeout(() => {
+          createElement({
+            tag:"div",
+            text: `Yaaaay, no mistakes <3!`,
+            parent: document.body,
+            classList:["resultDiv","resultDivTextGreen"]
+          })
+           setTimeout(() => {
             window.location.replace("../../src/index.html")
-          }, 2000);
+          }, 5000); 
         }
       }
     }

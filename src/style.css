@@ -358,3 +358,25 @@ input:checked + .slider:before {
   top: -0.7rem;
   cursor: pointer;
 }
+.resultDiv {
+  position: relative;
+  bottom: 80rem;
+  left: 13px;
+  right: 0;
+  max-width: 128rem;
+  min-height: 72rem;
+  margin-top: 10rem;
+  background-color: #f9d923;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 800;
+}
+.resultDivTextGreen {
+  color: #36ae7c;
+}
+.resultDivTextRed {
+  color: #ff1818;
+}
