@@ -18,13 +18,13 @@ function generateMainCards() {
       classList: ["categoryCardDiv", "flexCenterColumn"],
       parent: categoryCardMain,
     });
-    createElement({
+    const categoryImage = createElement({
       tag: "img",
       classList: ["categoryCardImage"],
       src: mainCards[1][i],
       parent: categoryCardDiv,
     });
-    createElement({
+    const categoryText = createElement({
       tag: "p",
       classList: ["categoryCardText"],
       text: mainCards[0][i].toUpperCase(),
@@ -113,9 +113,9 @@ for (let i = 0; i < 8; i++) {
         src: cards[i][database.pushRandNumbersInThisArr[0]].audioSrc,
       });
       audio.play();
-      categoryCardMain.children[
+       categoryCardMain.children[
         database.pushRandNumbersInThisArr[0]
-      ].addEventListener("click", isCorrect); // checks if sound matches card on card click
+      ].addEventListener("click", isCorrect); // checks if sound matches card on card click */
     }
   }
   startBtn.addEventListener("click",()=>{
@@ -126,7 +126,9 @@ for (let i = 0; i < 8; i++) {
     if (
       categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
         .children[1].textContent ===
-      cards[i][database.pushRandNumbersInThisArr[0]].word
+      cards[i][database.pushRandNumbersInThisArr[0]].word || categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
+      .children[1].textContent ===
+    cards[i][database.pushRandNumbersInThisArr[0]].translation
     ){
       const audio = createElement({
         tag: "audio",
@@ -147,8 +149,11 @@ for (let i = 0; i < 8; i++) {
       if(
         categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
           .children[1].textContent ===
-        cards[i][database.pushRandNumbersInThisArr[0]].word
+        cards[i][database.pushRandNumbersInThisArr[0]].word || categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
+        .children[1].textContent ===
+      cards[i][database.pushRandNumbersInThisArr[0]].translation
       ){
+        startBtn.removeEventListener("click", playAudio);
         playAudio()
       }
     });
@@ -157,7 +162,9 @@ for (let i = 0; i < 8; i++) {
     if (
       categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
         .children[1].textContent ===
-      cards[i][database.pushRandNumbersInThisArr[0]].word
+      cards[i][database.pushRandNumbersInThisArr[0]].word ||  categoryCardMain.children[database.pushRandNumbersInThisArr[0]]
+      .children[1].textContent ===
+    cards[i][database.pushRandNumbersInThisArr[0]].translation
     ) {
       categoryCardMain.children[
         database.pushRandNumbersInThisArr[0]
@@ -183,7 +190,7 @@ for (let i = 0; i < 8; i++) {
             classList:["resultDiv","resultDivTextRed"]
           })
            setTimeout(() => {
-            window.location.replace("../../../englishForKids-deploy/src/index.html")
+            window.location.replace("../../src/index.html")
           }, 5000); 
         } else {
           winVoice();
@@ -194,14 +201,13 @@ for (let i = 0; i < 8; i++) {
             classList:["resultDiv","resultDivTextGreen"]
           })
            setTimeout(() => {
-            window.location.replace("../../../englishForKids-deploy/src/index.html")
+            window.location.replace("../../src/index.html")
           }, 5000); 
         }
       }
     }
   }
 }
-
 // generate inner cards  when clicking main card/menu item
 for (let i = 0; i < 8; i++) {
   for (let j = 0; j < 8; j++) {
@@ -329,7 +335,7 @@ function loseVoice() {
   });
   lose.play();
 }
-
+//what to do when switcher is checked
 document.addEventListener("DOMContentLoaded", function () {
   let checkbox = document.querySelectorAll('input[type="checkbox"]');
   checkbox[1].addEventListener("click", function (e) {
