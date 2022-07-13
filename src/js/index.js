@@ -190,7 +190,7 @@ for (let i = 0; i < 8; i++) {
             classList:["resultDiv","resultDivTextRed"]
           })
            setTimeout(() => {
-            window.location.replace("../../src/index.html")
+            window.location.replace("../../../englishForKids-deploy/src/index.html")
           }, 5000); 
         } else {
           winVoice();
@@ -201,7 +201,7 @@ for (let i = 0; i < 8; i++) {
             classList:["resultDiv","resultDivTextGreen"]
           })
            setTimeout(() => {
-            window.location.replace("../../src/index.html")
+            window.location.replace("../../../englishForKids-deploy/src/index.html")
           }, 5000); 
         }
       }
